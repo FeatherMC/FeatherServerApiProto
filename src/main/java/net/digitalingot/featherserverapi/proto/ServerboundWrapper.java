@@ -5,22 +5,20 @@ import com.google.gson.annotations.SerializedName;
 import net.digitalingot.featherserverapi.proto.models.PacketType;
 import org.jetbrains.annotations.NotNull;
 
-public class Wrapper {
+public class ServerboundWrapper {
 
-    @NotNull
     @SerializedName("packetType")
-    private final PacketType packetType;
+    private final PacketType.Serverbound packetType;
     @NotNull
     @SerializedName("payload")
     private final JsonElement payload;
 
-    public Wrapper(@NotNull PacketType packetType, @NotNull JsonElement payload) {
+    public ServerboundWrapper(PacketType.Serverbound packetType, @NotNull JsonElement payload) {
         this.packetType = packetType;
         this.payload = payload;
     }
 
-    @NotNull
-    public PacketType getPacketType() {
+    public PacketType.Serverbound getPacketType() {
         return packetType;
     }
 
