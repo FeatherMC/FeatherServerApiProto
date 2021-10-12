@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'idea'
     id 'maven-publish'
+    id "com.jfrog.artifactory" version "4.24.20"
 }
 
 group 'net.digitalingot'
@@ -25,8 +26,21 @@ publishing {
             from components.java
         }
     }
-    repositories {
-        mavenLocal()
+}
+
+artifactory {
+    publish {
+        contextUrl = "https://artifactory.feathermc.net/artifactory"
+
+        repository {
+            repoKey = "feather-public"
+            username = System.getenv("ARTIFACTORY_USERNAME")
+            password = System.getenv("ARTIFACTORY_PASSWORD")
+        }
+
+        defaults {
+            publications 'mavenJava'
+        }
     }
 }
 
