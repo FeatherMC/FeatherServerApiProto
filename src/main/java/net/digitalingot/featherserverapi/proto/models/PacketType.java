@@ -4,7 +4,8 @@ public class PacketType {
 
     public enum Clientbound {
         DISABLE_MODS,
-        SET_WAYPOINTS
+        SET_WAYPOINTS,
+        DISABLE_HIT_DELAY
     }
 
     public enum Serverbound {
